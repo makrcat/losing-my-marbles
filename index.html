@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>top-down view</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <title>top-down view</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
-  <script type="module" src="main.js"></script>
+    <div style="position: fixed; bottom: 0; right: 0; z-index: 9999999; border: 1px solid black; ">
+        <canvas id="canvas2D" width="200px" height="140px" ></canvas>
+    </div>
+
+
+    <script type="module" src="main.js"></script>
+    <script type="module" src="test/game_loop.js"></script>
+
 </body>
+
 </html>
