@@ -3,8 +3,8 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.m
 
 const scene = new THREE.Scene();
 
-const width = window.innerHeight * 0.8;
-const height = window.innerHeight * 0.8;
+const width = 540;
+const height = 540;
 const aspect = 1;
 const d = 35;
 
