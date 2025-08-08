@@ -267,7 +267,7 @@ canvasElement.addEventListener('mousedown', (e) => {
 });
 
 //@ts-ignore
-canvasElement.addEventListener('mouseup', (e) => {
+document.addEventListener('mouseup', (e) => {
   if (!dragging || !draggedCircle) return;
 
   //@ts-ignore
@@ -280,7 +280,9 @@ canvasElement.addEventListener('mouseup', (e) => {
   const dragDist = Math.sqrt(dragDX * dragDX + dragDY * dragDY);
 
   const minSpeed = 0.1;
-  const maxSpeed = 5;
+  const maxSpeed = 10;
+
+  // Normalize drag distance into speed (adjust denominator for sensitivity)
   let speed = Math.min(dragDist / 20, maxSpeed);
   speed = Math.max(speed, minSpeed);
 
@@ -288,15 +290,18 @@ canvasElement.addEventListener('mouseup', (e) => {
   const dirX = dragDX / dragDist || 0;
   const dirY = dragDY / dragDist || 0;
 
+  // Assign velocity to circle
   draggedCircle.vx = dirX * speed;
   draggedCircle.vy = dirY * speed;
 
-  // Simple angular velocity impulse based on drag distance
+  // Optional: add angular velocity proportional to speed
   draggedCircle.angularV += speed * 0.05;
 
   dragging = false;
   draggedCircle = null;
 });
+
+
 
 function drawOutline(ctx) {
   if (!outline.visible) return;

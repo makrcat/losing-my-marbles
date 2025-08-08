@@ -328,7 +328,7 @@ renderer.domElement.addEventListener('mousedown', (event) => {
 });
 
 
-renderer.domElement.addEventListener('mousemove', (event) => {
+document.addEventListener('mousemove', (event) => {
     if (!dragging || !draggedCircle) return;
     getMousePos(event);
     dragCurrentPoint.copy(getMouseFloorPosition());
@@ -345,7 +345,7 @@ renderer.domElement.addEventListener('mousemove', (event) => {
 });
 
 
-renderer.domElement.addEventListener('mouseup', (event) => {
+document.addEventListener('mouseup', (event) => {
     if (!dragging || !draggedCircle) return;
 
     const dragEndTime = performance.now();
@@ -353,7 +353,7 @@ renderer.domElement.addEventListener('mouseup', (event) => {
 
 
     const minSpeed = 0.1;
-    const maxSpeed = 1.5;
+    const maxSpeed = 3;
 
     let speed = (dragDistance / beamLengthMax) * maxSpeed;
     speed = Math.max(speed, minSpeed);
