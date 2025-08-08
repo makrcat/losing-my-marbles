@@ -5,15 +5,147 @@
     <meta charset="UTF-8" />
     <title>top-down view</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <style>
+        .container {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .box {
+            border: 1px solid black;
+            padding: 1rem;
+            flex: 1;
+            overflow-wrap: break-word;
+        }
+
+        h1,
+        h2 {
+            margin-top: 0;
+        }
+    </style>
 </head>
 
 <body>
-    <div style="position: fixed; bottom: 0; right: 0; z-index: 9999999; border: 1px solid black; ">
-        <canvas id="canvas2D" width="200px" height="140px" ></canvas>
+    <div style="position: absolute; top: 600px; left: 0; margin: 10px;">
+        <h2>Relevant math</h2>
+        <em>Pain and agony.</em>
+
+        <div class="container">
+
+
+            <div class="box">
+                <p>
+                    Two circles with positions \( \mathbf{p_1} = (x_1, y_1) \), \( \mathbf{p_2} = (x_2, y_2) \),
+                    velocities \( \mathbf{v_1}, \mathbf{v_2} \), and masses \( m_1, m_2 \):
+                </p>
+
+                <div>
+                    \[
+                    \mathbf{v_1'} = \mathbf{v_1} - \frac{2 m_2}{m_1 + m_2} \frac{ \langle \mathbf{v_1} - \mathbf{v_2},
+                    \mathbf{p_1} - \mathbf{p_2} \rangle }{ \|\mathbf{p_1} - \mathbf{p_2}\|^2 } (\mathbf{p_1} -
+                    \mathbf{p_2})
+                    \]
+                </div>
+
+                <div>
+                    \[
+                    \mathbf{v_2'} = \mathbf{v_2} - \frac{2 m_1}{m_1 + m_2} \frac{ \langle \mathbf{v_2} - \mathbf{v_1},
+                    \mathbf{p_2} - \mathbf{p_1} \rangle }{ \|\mathbf{p_2} - \mathbf{p_1}\|^2 } (\mathbf{p_2} -
+                    \mathbf{p_1})
+                    \]
+                </div>
+
+                <p>Simplified Version (Equal Masses) which is what I use!</p>
+
+                <div>
+                    \[
+                    \mathbf{v_1'} = \mathbf{v_1} - \frac{ \langle \mathbf{v_1} - \mathbf{v_2}, \mathbf{p_1} -
+                    \mathbf{p_2} \rangle }{ \|\mathbf{p_1} - \mathbf{p_2}\|^2 } (\mathbf{p_1} - \mathbf{p_2})
+                    \]
+                </div>
+
+                <div>
+                    \[
+                    \mathbf{v_2'} = \mathbf{v_2} - \frac{ \langle \mathbf{v_2} - \mathbf{v_1}, \mathbf{p_2} -
+                    \mathbf{p_1} \rangle }{ \|\mathbf{p_2} - \mathbf{p_1}\|^2 } (\mathbf{p_2} - \mathbf{p_1})
+                    \]
+                </div>
+            </div>
+
+
+            <div class="box">
+                <h2>Angular Momentum</h2>
+
+
+                <p>When a circle spins, it has angular momentum L.
+                <div>
+                    \[
+                    L = I \omega
+                    \]
+                </div>
+
+                <p>and</p>
+                <ul>
+                    <li>\( I \) is the moment of inertia.</li>
+                    <li>\( \omega \) is the angular velocity (rate of spin).</li>
+                </ul>
+
+                <p>Now what is a moment of inertia:</p>
+                <div>
+                    \[
+                    I = \frac{1}{2} m r^2
+                    \]
+                </div>
+
+                <p>When two circles hit each other off-center, they create a torque \( \tau \), which changes the spin:</p>
+                <div>
+                    \[
+                    \tau = \frac{dL}{dt}
+                    \]
+                </div>
+
+                <p>This torque comes from how their edges slide past each other (relative tangential velocity), causing them to spin more or less.</p>
+
+            </div>
+        </div>
+    </div>
+
+    <div style="position: absolute; top: 0; left: 560px">
+        <canvas id="canvas" width="400px" height="400px" style="border: 1px solid black; margin-bottom: 20px"></canvas>
+        <span>
+            U can click and drag the marbles (both)!!!! many wow.
+
+            <br>
+
+            <img src="wowsp.gif">
+            <img src="wowsp.gif">
+            <img src="wowsp.gif">
+            <img src="wowsp.gif">
+            <img src="wowsp.gif">
+            <img src="wowsp.gif">
+            <img src="wowsp.gif">
+
+            <br>
+
+            Scroll down for pain
+        </span>
+    </div>
+
+    <div style="position: absolute; top: 0; left: 980px; margin-right: 20px;margin-top: 20px;">
+        <span>
+            <h2>external credits:</h2>
+
+                <a href="https://www.101computing.net/elastic-collision-in-a-pool-game/">https://www.101computing.net/elastic-collision-in-a-pool-game/</a>
+                <br><br>
+                <span>chatGPT helped with explaining the angular momentum code & translating my 2D canvas into Three.js's 3D system :)</span>
+
+
+        </span>
     </div>
 
 
-    <script type="module" src="main.js"></script>
+    <script type="module" src="what.js"></script>
     <script type="module" src="test/game_loop.js"></script>
 
 </body>

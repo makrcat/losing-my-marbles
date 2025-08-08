@@ -3,14 +3,15 @@
 import { GameCanvas } from "./game_engine.js";
 import { gameLoop } from "./game_loop.js";
 
-let fps = 60;
+let fps = 30;
 let now;
 let then = Date.now();
 let interval = 1000/fps;
 let delta;
-const canvas = document.getElementById("canvas");
 
-export const gameCanvas = new GameCanvas(canvas);
+
+export const canvasElement = document.getElementById("canvas");
+export const gameCanvas = new GameCanvas(canvasElement);
 
 //////////////////game!////////////////////////////////
 
