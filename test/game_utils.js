@@ -3,7 +3,7 @@
 import { GameCanvas } from "./game_engine.js";
 import { gameLoop } from "./game_loop.js";
 
-let fps = 30;
+let fps = 60;
 let now;
 let then = Date.now();
 let interval = 1000/fps;
